@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Form, Input } from 'antd';
 
+// TODO: deprecate component
+
 const HomePrice = () => {
   const [price, setPrice] = useState(0.0);
   const [valid, setValid] = useState(true);
