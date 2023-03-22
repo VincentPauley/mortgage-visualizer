@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { Form, Row, Col, Layout, Button } from 'antd';
 import './App.css';
+import { increaseAmount } from './features/cart/cartSlice';
+import { useDispatch } from 'react-redux';
 
 // components
 import DollarEntry from './components/shared/DollarEntry';
 import PercentInput from './components/shared/PercentInput';
 import DetermineMortgagePayment from './util/determine-mortgage-payment';
+import { useSelector } from 'react-redux';
 
 const { Content } = Layout;
 
@@ -19,8 +22,11 @@ console.log(
 );
 
 function App() {
+  const dispatch = useDispatch();
   const [homePrice, setHomePrice] = useState(0);
   const [downPayment, setDownPayment] = useState(0);
+
+  const { amount } = useSelector((state: any) => state.cart);
 
   const handleHomePriceChange = (dollarAmount: number) =>
     setHomePrice(dollarAmount);
@@ -29,8 +35,7 @@ function App() {
     setDownPayment(dollarAmount);
 
   const calculate = () => {
-    console.log('home price: ', homePrice);
-    console.log('down payment: ', downPayment);
+    dispatch(increaseAmount());
   };
 
   // useState
@@ -42,6 +47,7 @@ function App() {
         maxWidth: 600
       }}
     >
+      <p>Amount: {amount}</p>
       <Form>
         <Row gutter={16}>
           <Col span={24}>

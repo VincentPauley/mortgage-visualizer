@@ -1,6 +1,21 @@
-## Issues Remaining
+# Mortgage Visualizer
 
-Unclear when one thing should change and overwrite others...
+When using online tools to calculate monthly mortgage payments, I find the experience
+very clunky to check different rates and house prices and compare. This is my personal
+UI helper for tracking various different mortgages against each other.
 
+## Disclaimer
 
-You'll never be looking for percent... that's really just a choice in the budget, user should choose to search between Finding down payment needed or home price they can afford.
+I am not a Realtor or financial adviser, the underlying caclculations are based on formulas
+I found online - please understand a lot more goes into calculating payments than what I have here.
+
+## Project Stack
+
+this project is for the moment purely FE, the only persistant storage it uses is localStorage.
+
+- ReactJS
+- Redux
+
+## Design System:
+
+[Ant Design](https://ant.design/)
