@@ -1,11 +1,20 @@
 import { useState } from 'react';
-import { Form } from 'antd';
-
+import { Form, Row, Col, Layout, Button } from 'antd';
 import './App.css';
 
 // components
 import DollarEntry from './components/shared/DollarEntry';
 import PercentInput from './components/shared/PercentInput';
+import DetermineMortgagePayment from './util/determine-mortgage-payment';
+
+const { Content } = Layout;
+
+DetermineMortgagePayment({
+  homePrice: 100000,
+  downPayment: 20000,
+  interestRate: 0.05,
+  months: 120 // 30 YR
+});
 
 function App() {
   const [homePrice, setHomePrice] = useState(0);
@@ -17,59 +26,52 @@ function App() {
   const handleDownPaymentChange = (dollarAmount: number) =>
     setDownPayment(dollarAmount);
 
+  const calculate = () => {
+    console.log('home price: ', homePrice);
+    console.log('down payment: ', downPayment);
+  };
+
   // useState
   return (
-    <div className="App">
+    <Content
+      className="App"
+      style={{
+        padding: 30,
+        maxWidth: 600
+      }}
+    >
       <Form>
-        <DollarEntry
-          label="Home Price"
-          name="homePrice"
-          placeholder="250,000"
-          onUpdate={handleHomePriceChange}
-        />
-        <PercentInput />
-        <DollarEntry
-          label="Down Payment"
-          name="downPayment"
-          placeholder="50,000"
-          onUpdate={handleDownPaymentChange}
-        />
+        <Row gutter={16}>
+          <Col span={24}>
+            <DollarEntry
+              label="Home Price"
+              name="homePrice"
+              placeholder="250,000"
+              onUpdate={handleHomePriceChange}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={8}>
+            <PercentInput />
+          </Col>
+          <Col span={16}>
+            <DollarEntry
+              label="Down Payment"
+              name="downPayment"
+              placeholder="50,000"
+              onUpdate={handleDownPaymentChange}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <Button onClick={calculate}>Calculate</Button>
+          </Col>
+        </Row>
       </Form>
-    </div>
+    </Content>
   );
 }
 
 export default App;
-
-// TX +884K
-// FL +707K
-// NC +260K
-// AZ +208K
-// GA +201K
-// SC +164K
-// TN +141K
-// UT +109K
-// ID +100K
-// WA +81K
-// NV +73K
-// CO +66K
-// OK +60K
-// VA +52K
-// AL +50K
-// IN +48K
-// MT +39K
-// AR +34K
-// DE +28K
-// SD +23K
-// MO +23K
-// ME +23K
-
-// NJ -27K
-// PA -31K
-// MI -43K
-// OH -43K
-// MA -48K
-// LA -68K
-// IL -230K
-// CA -509K
-// NY -524K

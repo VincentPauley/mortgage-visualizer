@@ -30,7 +30,6 @@ const DollarEntry = (props: Props) => {
     if (validEntry) {
       setValid(true);
       const escapedEntry = value.replace(/,/g, '');
-      console.log(escapedEntry);
       const newValue = parseFloat(escapedEntry);
       onUpdate(newValue);
     } else {
@@ -39,7 +38,14 @@ const DollarEntry = (props: Props) => {
   };
 
   return (
-    <Form.Item label={label} name={name}>
+    <Form.Item
+      label={label}
+      name={name}
+      style={{
+        paddingLeft: 10,
+        paddingRight: 10
+      }}
+    >
       <Input
         prefix="$"
         placeholder={placeholder}

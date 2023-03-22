@@ -18,14 +18,11 @@ const PercentInput = () => {
 
   return (
     <Form.Item label="Percent">
-      <Space wrap>
-        <Select
-          onChange={handleChange}
-          defaultValue={options[3]}
-          style={{ width: 120 }}
-          options={options}
-        />
-      </Space>
+      <Select
+        onChange={handleChange}
+        defaultValue={options[3]}
+        options={options}
+      />
     </Form.Item>
   );
 };
