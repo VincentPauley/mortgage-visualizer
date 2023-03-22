@@ -9,12 +9,14 @@ import DetermineMortgagePayment from './util/determine-mortgage-payment';
 
 const { Content } = Layout;
 
-DetermineMortgagePayment({
-  homePrice: 100000,
-  downPayment: 20000,
-  interestRate: 0.05,
-  months: 120 // 30 YR
-});
+console.log(
+  DetermineMortgagePayment({
+    homePrice: 400_000,
+    downPayment: 80_000,
+    interestRate: 0.07,
+    months: 360 // 30 YR
+  })
+);
 
 function App() {
   const [homePrice, setHomePrice] = useState(0);

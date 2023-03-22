@@ -1,3 +1,5 @@
+import ToNearestPenny from './to-nearest-penny';
+
 interface MortgageAttributes {
   homePrice: number;
   downPayment: number;
@@ -29,7 +31,7 @@ const DetermineMortgagePayment = (attributes: MortgageAttributes): number => {
   const MONTHLY_PAYMENT =
     (PRINCIPAL * (MONTHLY_INTEREST * INTEREST_FACTOR)) / (INTEREST_FACTOR - 1);
 
-  return MONTHLY_PAYMENT;
+  return ToNearestPenny(MONTHLY_PAYMENT);
 };
 
 export default DetermineMortgagePayment;
