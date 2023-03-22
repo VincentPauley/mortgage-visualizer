@@ -1,4 +1,4 @@
-import { Form, Select, Space } from 'antd';
+import { Form, Select } from 'antd';
 
 interface PercentageOption {
   value: number;
