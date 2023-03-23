@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Form, Row, Col, Layout, Button } from 'antd';
+import { Form, Row, Col, Layout, Button, Space } from 'antd';
 
 import { increaseAmount } from './features/cart/cartSlice';
 import { useDispatch } from 'react-redux';
 
 import { AppHeader, AppContent, AppFooter } from './components/layout';
+
+import './content-body.scss';
 
 // components
 import DollarEntry from './components/shared/DollarEntry';
@@ -38,10 +40,23 @@ function App() {
     dispatch(increaseAmount());
   };
 
+  const ContentBody = () => {
+    return (
+      <Space className="ContentBody">
+        <p>
+          Welcome to mortgage calculator, a fun tool built by me: Vinnie Pauley.
+          Use this tool to experiment with and compare different mortgage
+          scenarios and see how different factors effect your monthly payment. I
+          am not a realtor or financial advisor, this is just for fun.
+        </p>
+      </Space>
+    );
+  };
+
   return (
     <Layout>
       <AppHeader />
-      <AppContent />
+      <AppContent body={ContentBody()} />
       <AppFooter />
     </Layout>
   );

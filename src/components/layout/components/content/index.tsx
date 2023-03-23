@@ -3,8 +3,12 @@ import './content.css';
 
 const { Content } = Layout;
 
-const AppContent = () => {
-  return <Content className="AppContent">new app content</Content>;
+interface Props {
+  body: JSX.Element;
+}
+
+const AppContent = (props: Props) => {
+  return <Content className="AppContent">{props.body}</Content>;
 };
 
 export default AppContent;
