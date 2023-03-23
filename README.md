@@ -13,6 +13,7 @@ I found online - please understand a lot more goes into calculating payments tha
 
 this project is for the moment purely FE, the only persistant storage it uses is localStorage.
 
+- Typescript
 - ReactJS
 - Redux
 
