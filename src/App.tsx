@@ -1,34 +1,16 @@
 import { useState } from 'react';
-import { Form, Row, Col, Layout, Button, Typography } from 'antd';
+import { Form, Row, Col, Layout, Button } from 'antd';
 
 import { increaseAmount } from './features/cart/cartSlice';
 import { useDispatch } from 'react-redux';
 
-import { AppHeader } from './components/layout';
+import { AppHeader, AppContent, AppFooter } from './components/layout';
 
 // components
 import DollarEntry from './components/shared/DollarEntry';
 import PercentInput from './components/shared/PercentInput';
 import DetermineMortgagePayment from './util/determine-mortgage-payment';
 import { useSelector } from 'react-redux';
-
-const { Content, Footer } = Layout;
-
-const { Title } = Typography;
-
-const contentStyle: React.CSSProperties = {
-  textAlign: 'center',
-  minHeight: 120,
-  lineHeight: '120px',
-  color: '#fff',
-  backgroundColor: '#108ee9'
-};
-
-const footerStyle: React.CSSProperties = {
-  textAlign: 'center',
-  color: '#fff',
-  backgroundColor: '#7dbcea'
-};
 
 console.log(
   DetermineMortgagePayment({
@@ -56,17 +38,14 @@ function App() {
     dispatch(increaseAmount());
   };
 
-  // Title
-
   return (
     <Layout>
       <AppHeader />
-      <Content style={contentStyle}>Content</Content>
-      <Footer style={footerStyle}>Footer</Footer>
+      <AppContent />
+      <AppFooter />
     </Layout>
   );
 
-  // HEADER, CONTENT, FOOTER
   // useState
   // return (
   //   <Content
